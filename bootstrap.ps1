@@ -30,38 +30,34 @@ function TryCreateSymlink($source, $target) {
     }
 }
 
-$moduleFileName = "paths.psm1"
 $getSourceFunctionName = "GetSource"
 $getTargetFunctionName = "GetTarget"
+$moduleSuffix = "links.psm1"
 
 $rootDirectory = Get-Location
-$subdirectories = Get-ChildItem -Path $rootDirectory -Directory
-foreach ($directory in $subdirectories) {
-    $modulePath = Join-Path -Path $directory -ChildPath $moduleFileName
-    if (-Not (Test-Path $modulePath)) {
-        Write-Host "Module $moduleFileName not found in $directory" -ForegroundColor Yellow
-        continue
-    }
-
-    Import-Module $modulePath -Prefix $directory.Name -Force
+$modules = Get-ChildItem -Path $rootDirectory -File -Filter "*$moduleSuffix" -Recurse
+$moduleNumber = 1
+foreach ($module in $modules) {
+    Import-Module $module.FullName -Prefix $moduleNumber -Force
     try {
-        $source = Invoke-Expression "$($directory.Name)$getSourceFunctionName $directory"
+        $source = Invoke-Expression "$moduleNumber$getSourceFunctionName $rootDirectory"
     }
     catch {
-        Write-Host "Error: $($directory.Name)/$moduleFileName does not define function $getSourceFunctionName" -ForegroundColor Red
+        Write-Host "Error: $module.FullName does not define function $getSourceFunctionName" -ForegroundColor Red
         continue
     }
 
     # TODO: DRY
     try {
-        $target = Invoke-Expression "$($directory.Name)$getTargetFunctionName $directory"
+        $target = Invoke-Expression "$moduleNumber$getTargetFunctionName $rootDirectory"
     }
     catch {
-        Write-Host "Error: $($directory.Name)/$moduleFileName does not define function $getTargetFunctionName" -ForegroundColor Red
+        Write-Host "Error: $module.FullName does not define function $getTargetFunctionName" -ForegroundColor Red
         continue
     }
 
     TryCreateSymlink $source $target
+    $moduleNumber++
 }
 
-Write-Host "Bootstrap finished."
+Write-Host "Bootstrap finished." -ForegroundColor Blue
