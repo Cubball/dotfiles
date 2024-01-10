@@ -1,5 +1,5 @@
 function GetSource($dotfilesDirectory) {
-    return Join-Path -Path $dotfilesDirectory -ChildPath "nvim\ukrainian-jcuken-improved.vim"
+    return Join-Path -Path $dotfilesDirectory -ChildPath "neovim\keymap\ukrainian-jcuken-improved.vim"
 }
 
 function GetTarget($dotfilesDirectory) {
