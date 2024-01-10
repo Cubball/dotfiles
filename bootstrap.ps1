@@ -22,7 +22,7 @@ function TryCreateSymlink($source, $target) {
     }
 
     try {
-        $null = New-Item -ItemType SymbolicLink -Path $target -Value $source
+        $null = New-Item -ItemType SymbolicLink -Path $target -Value $source -Force -ErrorAction Stop
         Write-Host "Symlink created successfully at $target" -ForegroundColor Green
     }
     catch {
