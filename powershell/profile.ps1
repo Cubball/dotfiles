@@ -2,7 +2,12 @@ $VIM = $env:LOCALAPPDATA + "\nvim"
 $UNI = "D:\Uni\2\2"
 $PROJ = "D:\Projects"
 
+function RunTerminalAsAdmin {
+    Start-Process wt -Verb RunAs
+}
+
 Set-Alias -Name vim -Value nvim
+Set-Alias -Name admin -Value RunTerminalAsAdmin
 
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Vi
