@@ -1,4 +1,5 @@
-$VIM = $env:LOCALAPPDATA + "\nvim"
+$DOT = "D:\Projects\Misc\dotfiles"
+$VIM = "$DOT\neovim\nvim"
 $UNI = "D:\Uni\2\2"
 $PROJ = "D:\Projects"
 
