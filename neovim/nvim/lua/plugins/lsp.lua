@@ -39,32 +39,29 @@ end
 
 function setup_servers(lsp)
     local lsp = require("lspconfig")
-    local local_app_data = os.getenv("LOCALAPPDATA")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    lsp.html.setup({
+
+    local servers = { "html", "cssls", "tsserver" }
+    local default_config = {
         capabilities = capabilities,
         on_attach = set_mappings,
-    })
-    lsp.cssls.setup({
-        capabilities = capabilities,
-        on_attach = set_mappings,
-    })
+    }
+    for _, server in ipairs(servers) do
+        lsp[server].setup(default_config)
+    end
 
-    lsp.tsserver.setup({
-        on_attach = set_mappings,
-    })
-
+    c_sharp_highlighting()
     lsp.omnisharp.setup({
-        cmd = { "dotnet", local_app_data .. "/omnisharp/OmniSharp.dll" },
+        cmd = { "dotnet", os.getenv("LOCALAPPDATA") .. "/omnisharp/OmniSharp.dll" },
         handlers = {
             ["textDocument/definition"] = require("omnisharp_extended").handler,
         },
         enable_import_completion = true,
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
+        capabilities = capabilities,
         on_attach = function(client, buffer) 
-            c_sharp_highlighting()
             set_mappings(client, buffer)
         end,
     })

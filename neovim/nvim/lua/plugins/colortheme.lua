@@ -16,9 +16,10 @@ return {
             ["@type.builtin"] = { fg = "$purple" },
             ["@boolean"] = { fg = "$purple" },
             ["@tag.delimiter"] = { fg = "$fg" },
-            ["@property"] = { fg = "$fg" },
+            ["@lsp.type.property"] = { fg = "$fg" },
             ["@field"] = { fg = "$fg" },
             ["@tag"] = { fg = "$red" },
+            ["@lsp.type.variable"] = { fg = "$red" },
         }, 
     },
     config = function(_, opts)
