@@ -1,4 +1,3 @@
--- NOTE: trying this plugin out
 return {
     "folke/todo-comments.nvim",
     event = "VeryLazy",

@@ -75,7 +75,6 @@ return {
             formatting = {
                 fields = { "abbr", "menu", "kind" },
                 format = function(entry, vim_item)
-                    -- NOTE: this line adds icons to the completion menu, still trying this out, not sure if I'll keep it
                     vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
                     vim_item.menu = ({
                         path = "[Path]",

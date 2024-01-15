@@ -12,14 +12,12 @@ return {
             variables = "none",
         },
         highlights = {
-            ["@constant.builtin"] = { fg = "$purple" },
-            ["@type.builtin"] = { fg = "$purple" },
             ["@boolean"] = { fg = "$purple" },
             ["@tag.delimiter"] = { fg = "$fg" },
             ["@lsp.type.property"] = { fg = "$fg" },
-            ["@field"] = { fg = "$fg" },
-            ["@tag"] = { fg = "$red" },
             ["@lsp.type.variable"] = { fg = "$red" },
+            ["@lsp.type.fieldName"] = { fg = "$fg" },
+            ["@lsp.type.enumMember"] = { fg = "$fg" },
         }, 
     },
     config = function(_, opts)
