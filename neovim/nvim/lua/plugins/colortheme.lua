@@ -18,6 +18,7 @@ return {
             ["@lsp.type.variable"] = { fg = "$red" },
             ["@lsp.type.fieldName"] = { fg = "$fg" },
             ["@lsp.type.enumMember"] = { fg = "$fg" },
+            ["@lsp.type.constantName"] = { fg = "$fg" },
         }, 
     },
     config = function(_, opts)

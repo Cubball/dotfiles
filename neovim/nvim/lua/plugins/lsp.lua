@@ -22,21 +22,6 @@ function set_mappings(client, buffer)
     end
 end
 
-function c_sharp_highlighting()
-    vim.api.nvim_set_hl(0, "@lsp.type.namespace_name", { link = "@namespace" })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter_name", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "@lsp.type.local_name", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "@lsp.type.class_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.struct_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.enum_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.delegate_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.interface_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.type_parameter_name", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.method_name", { link = "@method" })
-    vim.api.nvim_set_hl(0, "@lsp.type.field_name", { link = "@field" })
-    vim.api.nvim_set_hl(0, "@lsp.type.property_name", { link = "@field" })
-end
-
 function setup_servers(lsp)
     local lsp = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -51,7 +36,6 @@ function setup_servers(lsp)
         lsp[server].setup(default_config)
     end
 
-    c_sharp_highlighting()
     lsp.omnisharp.setup({
         cmd = { "dotnet", os.getenv("LOCALAPPDATA") .. "/omnisharp/OmniSharp.dll" },
         handlers = {
