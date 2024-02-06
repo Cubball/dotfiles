@@ -27,7 +27,7 @@ function setup_servers(lsp)
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local servers = { "html", "cssls", "tsserver" }
+    local servers = { "html", "cssls", "tsserver", "pyright" }
     local default_config = {
         capabilities = capabilities,
         on_attach = set_mappings,
