@@ -27,7 +27,7 @@ function setup_servers(lsp)
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local servers = { "html", "cssls", "tsserver", "pyright" }
+    local servers = { "html", "cssls", "tsserver", "pyright", "angularls" }
     local default_config = {
         capabilities = capabilities,
         on_attach = set_mappings,
@@ -36,6 +36,14 @@ function setup_servers(lsp)
         lsp[server].setup(default_config)
     end
 
+    local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
+    local cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
+    lsp.angularls.setup({
+      cmd = cmd,
+      on_new_config = function(new_config, new_root_dir)
+        new_config.cmd = cmd
+      end,
+    })
     lsp.omnisharp.setup({
         cmd = { "dotnet", os.getenv("LOCALAPPDATA") .. "/omnisharp/OmniSharp.dll" },
         handlers = {
