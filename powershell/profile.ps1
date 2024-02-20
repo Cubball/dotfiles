@@ -9,6 +9,7 @@ function RunTerminalAsAdmin {
 
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name admin -Value RunTerminalAsAdmin
+Set-Alias -Name bsh -Value "C:\Program Files\Git\bin\bash.exe"
 
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Vi
