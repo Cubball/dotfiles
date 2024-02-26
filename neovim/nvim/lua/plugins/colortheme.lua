@@ -13,6 +13,7 @@ return {
         },
         highlights = {
             ["@boolean"] = { fg = "$purple" },
+            ["@type.builtin"] = { fg = "$purple" },
             ["@tag.delimiter"] = { fg = "$fg" },
             ["@lsp.type.property"] = { fg = "$fg" },
             ["@lsp.type.variable"] = { fg = "$red" },
