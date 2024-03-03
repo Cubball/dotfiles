@@ -7,9 +7,14 @@ function RunTerminalAsAdmin {
     Start-Process wt -Verb RunAs
 }
 
+function NewTab {
+    Start-Process wt -ArgumentList "-w 0 new-tab -d ."
+}
+
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name admin -Value RunTerminalAsAdmin
 Set-Alias -Name bsh -Value "C:\Program Files\Git\bin\bash.exe"
+Set-Alias -Name nt -Value NewTab
 
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineOption -EditMode Vi
