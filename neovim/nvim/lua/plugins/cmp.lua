@@ -65,6 +65,7 @@ return {
                 end, { "i", "s" }),        
                 ["<C-u>"] = cmp.mapping.scroll_docs(-8),
                 ["<C-d>"] = cmp.mapping.scroll_docs(8),
+                ["<C-f>"] = cmp.mapping.complete({}),
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
