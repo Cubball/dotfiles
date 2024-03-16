@@ -10,5 +10,9 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
     end,
-    config = true,
+    opts = { 
+        git = { 
+            timeout = 1000, 
+        },
+    },
 }
