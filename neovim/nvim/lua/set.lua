@@ -38,3 +38,19 @@ vim.opt.swapfile = false
 
 -- Remove tildes at the end of the file
 vim.opt.fillchars = { eob = " " }
+
+local yank_highlight_group = vim.api.nvim_create_augroup("yank_highlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({ higroup = "Visual", timeout = 100 })
+    end,
+    group = yank_highlight_group,
+})
+
+local remove_whitespace_group = vim.api.nvim_create_augroup("remove_whitespace", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    command = "%s/\\s\\+$//e",
+    group = remove_whitespace_group,
+})
