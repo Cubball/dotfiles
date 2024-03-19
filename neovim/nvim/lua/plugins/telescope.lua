@@ -15,4 +15,17 @@ return {
         { "<leader>gr", function() require("telescope.builtin").lsp_references() end, desc = "[G]o to [R]eferences" },
         { "<leader>cs", function() require("telescope.builtin").colorscheme() end, desc = "[C]olor[S]cheme" },
     },
+    config = function()
+        local telescope = require("telescope")
+        local actions = require("telescope.actions")
+        telescope.setup({
+            defaults = {
+                mappings = {
+                    n = {
+                        ["q"] = require("telescope.actions").close,
+                    },
+                },
+            },
+        })
+    end,
 }
