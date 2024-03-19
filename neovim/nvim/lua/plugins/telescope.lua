@@ -5,6 +5,7 @@ return {
     },
     keys = {
         { "<leader><leader>", function() require("telescope.builtin").buffers() end, desc = "Space + Space - find buffers for quick access" },
+        { "<leader>ft", function() require("telescope.builtin").builtin() end, desc = "[F]ind [T]elescope" },
         { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "[F]ind [F]iles" },
         { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "[F]ind [B]uffers" },
         { "<leader>fw", function() require("telescope.builtin").grep_string() end, desc = "[F]ind [W]ord (under cursor)" },
