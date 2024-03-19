@@ -11,11 +11,9 @@ return {
         },
         incremental_selection = {
             enable = true,
-            -- TODO: choose better mappings
             keymaps = {
                 init_selection = "<CR>",
-                node_incremental = "<CR>",
-                scope_incremental = "<TAB>",
+                node_incremental = "<TAB>",
                 node_decremental = "<S-TAB>",
             },
         },
