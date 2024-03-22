@@ -54,7 +54,7 @@ function setup_servers(lsp)
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
         capabilities = capabilities,
-        on_attach = function(client, buffer) 
+        on_attach = function(client, buffer)
             set_mappings(client, buffer)
         end,
     })

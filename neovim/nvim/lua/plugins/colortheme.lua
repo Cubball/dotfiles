@@ -3,7 +3,7 @@ return {
     opts = {
         style = "cool", -- "dark", "darker", "cool", "deep", "warm", "warmer" and "light"
         transparent = true, -- set the terminal"s background color to be the same as in "cool" style, so made it transparent
-        term_colors = true, 
+        term_colors = true,
         code_style = {
             comments = "none",
             keywords = "none",
@@ -21,7 +21,7 @@ return {
             ["@lsp.type.fieldName"] = { fg = "$fg" },
             ["@lsp.type.enumMember"] = { fg = "$fg" },
             ["@lsp.type.constantName"] = { fg = "$fg" },
-        }, 
+        },
     },
     config = function(_, opts)
         local onedark = require("onedark")

@@ -1,7 +1,7 @@
 return {
     "nvim-neotest/neotest",
-    dependencies = { 
-        "Issafalcon/neotest-dotnet" 
+    dependencies = {
+        "Issafalcon/neotest-dotnet"
     },
     keys = {
         { "<leader>tr", function() require("neotest").run.run() end, desc = "[T]est [R]un" },
