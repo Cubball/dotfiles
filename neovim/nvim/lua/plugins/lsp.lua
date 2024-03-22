@@ -18,6 +18,8 @@ function set_mappings(client, buffer)
             },
         })
         vim.keymap.set({ "n", "i" }, "<C-n>", "<cmd>LspOverloadsSignature<CR>", { desc = "Ctrl + n - show signature help with overloads (if they are present)", buffer = buffer })
+        -- HACK: haven't found a way to set the color of the active parameter natively
+        vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { underline = true })
     else
         vim.keymap.set({ "n", "i" }, "<C-n>", vim.lsp.buf.signature_help, { desc = "Ctrl + n - show signature help", buffer = buffer })
     end
