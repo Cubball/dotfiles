@@ -1,5 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     build = ":TSUpdate",
     opts = {
         ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "c_sharp" },
@@ -15,6 +18,19 @@ return {
                 init_selection = "<CR>",
                 node_incremental = "<TAB>",
                 node_decremental = "<S-TAB>",
+            },
+        },
+        textobjects = {
+            swap = {
+                enable = true,
+                swap_next = {
+                    ["<leader>a"] = "@parameter.inner",
+                    ["<leader>m"] = "@function.outer",
+                },
+                swap_previous = {
+                    ["<leader>A"] = "@parameter.inner",
+                    ["<leader>M"] = "@function.outer",
+                },
             },
         },
     },
