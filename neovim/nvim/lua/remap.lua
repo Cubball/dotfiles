@@ -18,12 +18,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Keep the register contents when pasting over highlighted text
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Space + p - paste without replacing text in register" })
-
--- Delete text without it moving into the register
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Space + d - delete without replacing text in register" })
+-- Deleting, cutting and pasting text
+vim.keymap.set({"n", "v"}, "d", [["_d]], { desc = "Delete without replacing text in register" })
+vim.keymap.set({"n", "v"}, "<leader>d", "d", { desc = "Space + d - cut" })
+vim.keymap.set({"n", "v"}, "x", [["_x]], { desc = "Delete without replacing text in register" })
+vim.keymap.set({"n", "v"}, "<leader>x", [["_x]], { desc = "Space + x - cut" })
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without replacing text in register" })
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Space + p - paste and copy the replaced text" })
 
 -- Remaps for navigating / deleting buffers
 vim.keymap.set("n", "<leader>bd", vim.cmd.bd, { desc = "[B]uffer [D]elete" })
