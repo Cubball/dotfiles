@@ -21,8 +21,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Deleting, cutting and pasting text
 vim.keymap.set({"n", "v"}, "d", [["_d]], { desc = "Delete without replacing text in register" })
 vim.keymap.set({"n", "v"}, "<leader>d", "d", { desc = "Space + d - cut" })
+vim.keymap.set({"n", "v"}, "c", [["_c]], { desc = "Delete without replacing text in register" })
+vim.keymap.set({"n", "v"}, "<leader>c", "c", { desc = "Space + c - cut" })
 vim.keymap.set({"n", "v"}, "x", [["_x]], { desc = "Delete without replacing text in register" })
 vim.keymap.set({"n", "v"}, "<leader>x", [["_x]], { desc = "Space + x - cut" })
+vim.keymap.set({"n", "v"}, "s", [["_s]], { desc = "Delete without replacing text in register" })
+vim.keymap.set({"n", "v"}, "<leader>s", [["_s]], { desc = "Space + s - cut" })
 vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without replacing text in register" })
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Space + p - paste and copy the replaced text" })
 
