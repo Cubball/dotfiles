@@ -19,16 +19,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Deleting, cutting and pasting text
-vim.keymap.set({"n", "x"}, "d", [["_d]], { desc = "Delete without replacing text in register" })
-vim.keymap.set({"n", "x"}, "<leader>d", "d", { desc = "Space + d - cut" })
-vim.keymap.set({"n", "x"}, "c", [["_c]], { desc = "Delete without replacing text in register" })
-vim.keymap.set({"n", "x"}, "<leader>c", "c", { desc = "Space + c - cut" })
-vim.keymap.set({"n", "x"}, "x", [["_x]], { desc = "Delete without replacing text in register" })
-vim.keymap.set({"n", "x"}, "<leader>x", "x", { desc = "Space + x - cut" })
-vim.keymap.set({"n", "x"}, "s", [["_s]], { desc = "Delete without replacing text in register" })
-vim.keymap.set({"n", "x"}, "<leader>s", "s", { desc = "Space + s - cut" })
-vim.keymap.set("x", "p", [["_dP]], { desc = "Paste without replacing text in register" })
-vim.keymap.set("x", "<leader>p", "p", { desc = "Space + p - paste and copy the replaced text" })
+vim.keymap.set({"n", "x"}, "<leader>d", '"_d', { desc = "Space + d - delete without replacing text in register" })
+vim.keymap.set({"n", "x"}, "<leader>c", '"_c', { desc = "Space + c - delete without replacing text in register" })
+vim.keymap.set({"n", "x"}, "<leader>x", '"_x', { desc = "Space + x - delete without replacing text in register" })
+vim.keymap.set({"n", "x"}, "<leader>s", '"_s', { desc = "Space + s - delete without replacing text in register" })
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Space + p - paste without replacing text in register" })
 
 -- Remaps for navigating / deleting buffers
 vim.keymap.set("n", "<leader>bd", vim.cmd.bd, { desc = "[B]uffer [D]elete" })
