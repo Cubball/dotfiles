@@ -1,11 +1,11 @@
 local local_app_data = os.getenv("LOCALAPPDATA")
+
 function setup_c_sharp(dap)
     dap.adapters.netcoredbg = {
         type = "executable",
         command = local_app_data .. "/netcoredbg/netcoredbg.exe",
         args = {"--interpreter=vscode"}
     }
-
     dap.configurations.cs = {
         {
             type = "netcoredbg",
@@ -42,7 +42,6 @@ function setup_c_and_cpp(dap)
             -- detached = false,
         }
     }
-
     dap.configurations.cpp = {
         {
             name = "Launch file",
@@ -55,7 +54,6 @@ function setup_c_and_cpp(dap)
             stopOnEntry = false,
         },
     }
-
     dap.configurations.c = dap.configurations.cpp
 end
 
@@ -64,23 +62,11 @@ return {
     dependencies = {
         {
             "rcarriga/nvim-dap-ui",
+            main = "dapui",
+            config = true,
             dependencies = {
                 "nvim-neotest/nvim-nio",
             },
-            config = function()
-                local dap = require("dap")
-                local dapui = require("dapui")
-                dapui.setup()
-                dap.listeners.after.event_initialized["dapui_config"] = function()
-                    dapui.open()
-                end
-                dap.listeners.before.event_terminated["dapui_config"] = function()
-                    dapui.close()
-                end
-                dap.listeners.before.event_exited["dapui_config"] = function()
-                    dapui.close()
-                end
-            end,
         },
     },
     keys = {
@@ -93,12 +79,26 @@ return {
         { "<F11>", function() require("dap").step_into() end, desc = "F11 - step into" },
         { "<F12>", function() require("dap").step_out() end, desc = "F12 - step out" },
     },
+    cmd = "DapUiToggle",
     config = function()
-        vim.fn.sign_define("DapBreakpoint", { text="🛑", texthl="", linehl="", numhl="" })
-        vim.fn.sign_define("DapBreakpointRejected", { text="❌", texthl="", linehl="", numhl="" })
-        vim.fn.sign_define("DapBreakpointCondition", { text="❓", texthl="", linehl="", numhl="" })
         local dap = require("dap")
+        local dapui = require("dapui")
         setup_c_sharp(dap)
         setup_c_and_cpp(dap)
+        dapui.setup()
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open()
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close()
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close()
+        end
+        vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapBreakpointCondition", { text = "❓", texthl = "", linehl = "", numhl = "" })
+        vim.api.nvim_create_user_command("DapUiToggle", function() dapui.toggle() end, { })
+        vim.api.nvim_create_user_command("DapUiReset", function() dapui.open({ reset = true }) end, { })
     end
 }

@@ -25,7 +25,7 @@ function set_mappings(client, buffer)
     end
 end
 
-function setup_servers(lsp)
+function setup_servers()
     local lsp = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -42,10 +42,21 @@ function setup_servers(lsp)
     local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
     local cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
     lsp.angularls.setup({
-      cmd = cmd,
-      on_new_config = function(new_config, new_root_dir)
-        new_config.cmd = cmd
-      end,
+        cmd = cmd,
+        capabilities = capabilities,
+        on_attach = set_mappings,
+        on_new_config = function(new_config, new_root_dir)
+            new_config.cmd = cmd
+        end,
+    })
+    lsp.tailwindcss.setup({
+        capabilities = capabilities,
+        on_attach = set_mappings,
+        settings = {
+            tailwindCSS = {
+                emmetCompletions = true,
+            },
+        },
     })
     lsp.omnisharp.setup({
         cmd = { "dotnet", os.getenv("LOCALAPPDATA") .. "/omnisharp/OmniSharp.dll" },
@@ -56,9 +67,7 @@ function setup_servers(lsp)
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
         capabilities = capabilities,
-        on_attach = function(client, buffer)
-            set_mappings(client, buffer)
-        end,
+        on_attach = set_mappings,
     })
 end
 

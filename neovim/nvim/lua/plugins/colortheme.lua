@@ -1,8 +1,8 @@
 return {
     "navarasu/onedark.nvim",
     opts = {
-        style = "cool", -- "dark", "darker", "cool", "deep", "warm", "warmer" and "light"
-        transparent = true, -- set the terminal"s background color to be the same as in "cool" style, so made it transparent
+        style = "cool",
+        transparent = true,
         term_colors = true,
         code_style = {
             comments = "none",
