@@ -30,8 +30,6 @@ vim.keymap.set("n", "<leader>bd", vim.cmd.bd, { desc = "[B]uffer [D]elete" })
 vim.keymap.set("n", "<leader>ba", "<CMD>%bd<CR>", { desc = "[B]uffer delete [A]ll" })
 vim.keymap.set("n", "<leader>bc", "<CMD>%bd|e#|bd#<CR>", { desc = "[B]uffer delete except [C]urrent" })
 
-vim.keymap.set("n", "<leader>rs", "<CMD>LspRestart<CR>", { desc = "[R]e[S]tart LSP" })
-
 -- Splits
 vim.keymap.set("n", "<leader>sv", vim.cmd.vsp, { desc = "[S]plit [V]ertical" })
 vim.keymap.set("n", "<leader>sh", vim.cmd.sp, { desc = "[S]plit [H]orizontal" })
