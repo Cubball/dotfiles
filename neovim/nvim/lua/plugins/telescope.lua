@@ -22,6 +22,7 @@ return {
         { "<leader>fsd", function() require("telescope.builtin").lsp_document_symbols() end, desc = "[F]ind [S]ymbols in [D]ocument" },
         { "<leader>fsw", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "[F]ind [S]ymbols in [W]orkspace" },
     },
+    cmd = "Telescope",
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
