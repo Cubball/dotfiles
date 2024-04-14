@@ -78,4 +78,13 @@ return {
         "Issafalcon/lsp-overloads.nvim",
     },
     config = setup_servers,
+    init = function()
+        vim.diagnostic.config({
+            underline = {
+                severity = {
+                    min = vim.diagnostic.severity.WARN
+                },
+            },
+        })
+    end,
 }
