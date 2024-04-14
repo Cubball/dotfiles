@@ -14,5 +14,17 @@ return {
         git = {
             timeout = 1000,
         },
+        -- NOTE: trying these out, might remove later
+        diagnostics = {
+            enable = true,
+        },
+        renderer = {
+            indent_markers = {
+                enable = true,
+            },
+            icons = {
+                git_placement = "after",
+            },
+        },
     },
 }

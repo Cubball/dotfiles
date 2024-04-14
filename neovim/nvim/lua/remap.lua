@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 
 -- Move chunck of text with J K in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "J in Visual Mode - move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "K in Visual Mode - move selection up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "J in Visual Mode - move selection down", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "K in Visual Mode - move selection up", silent = true })
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "jk in Insert Mode - escape" })
 vim.keymap.set("c", "jk", "<C-c>", { desc = "jk in Command Mode - escape" })

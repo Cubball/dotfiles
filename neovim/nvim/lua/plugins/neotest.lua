@@ -3,14 +3,14 @@ return {
     dependencies = {
         "Issafalcon/neotest-dotnet",
     },
-    keys = {
-        -- NOTE: might delete this since it might be easier to view the test output from the test explorer, because I launch them from there
-        -- { "<leader>to", function() require("neotest").output.open({ enter = true }) end, desc = "[T]est [O]utput" },
-        { "<leader>te", function() require("neotest").summary.toggle() end, desc = "[T]est [E]xplorer" },
-        { "<leader>ts", function() require("neotest").output_panel.toggle() end, desc = "[T]est [S]ummary" },
-    },
+    -- NOTE: using only a custom command for now, might bring the keymap later
+    -- keys = {
+    --     { "<leader>te", function() require("neotest").summary.toggle() end, desc = "[T]est [E]xplorer" },
+    -- },
+    cmd = "TestExplorer",
     config = function()
-        require("neotest").setup({
+        local neotest = require("neotest")
+        neotest.setup({
             adapters = {
                 require("neotest-dotnet"),
             },
@@ -19,5 +19,6 @@ return {
                 open = false,
             },
         })
+        vim.api.nvim_create_user_command("TestExplorer", function() neotest.summary.toggle() end, { })
     end,
 }

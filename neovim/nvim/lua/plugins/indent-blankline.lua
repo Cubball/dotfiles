@@ -1,8 +1,6 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+    cmd = { "IBLEnable" },
     main = "ibl",
-    opts = {
-        enabled = false,
-    },
+    config = true,
 }
