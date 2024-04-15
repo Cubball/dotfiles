@@ -1,43 +1,29 @@
-vim.cmd("language en_US")
-
--- Fat cursor
-vim.opt.guicursor = ""
-
--- Yank into system clipboard
-vim.opt.clipboard = "unnamed"
-
--- Tab size
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
-vim.opt.wrap = false
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.smartindent = true
-
-vim.opt.scrolloff = 8
-
-vim.opt.fileencodings = "utf-8,cp1251"
-vim.opt.keymap = "ukrainian-jcuken-improved"
-vim.opt.iminsert = 0
-vim.opt.imsearch = -1
-
-vim.opt.termguicolors = true
-
-vim.opt.swapfile = false
-
--- Remove tildes at the end of the file
-vim.opt.fillchars = { eob = " " }
+local o = vim.opt
+o.clipboard = "unnamed"
+o.expandtab = true
+o.fileencodings = "utf-8,cp1251"
+o.fillchars = { eob = " " }
+o.guicursor = ""
+o.hlsearch = false
+o.ignorecase = true
+o.iminsert = 0
+o.imsearch = -1
+o.incsearch = true
+o.keymap = "ukrainian-jcuken-improved"
+o.nu = true
+o.relativenumber = true
+o.scrolloff = 8
+o.shiftwidth = 4
+o.smartcase = true
+o.smartindent = true
+o.softtabstop = 4
+o.splitbelow = true
+o.splitright = true
+o.swapfile = false
+o.tabstop = 4
+o.termguicolors = true
+o.timeoutlen = 500
+o.wrap = false
 
 local yank_highlight_group = vim.api.nvim_create_augroup("yank_highlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
