@@ -4,7 +4,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    config = function(_, opts)
+    config = function()
         local todo = require("todo-comments")
         todo.setup({
             icons = false,

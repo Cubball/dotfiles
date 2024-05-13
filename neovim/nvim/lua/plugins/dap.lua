@@ -1,6 +1,6 @@
 local local_app_data = os.getenv("LOCALAPPDATA")
 
-function setup_c_sharp(dap)
+local function setup_c_sharp(dap)
     dap.adapters.netcoredbg = {
         type = "executable",
         command = local_app_data .. "/netcoredbg/netcoredbg.exe",
@@ -31,7 +31,7 @@ function setup_c_sharp(dap)
     }
 end
 
-function setup_c_and_cpp(dap)
+local function setup_c_and_cpp(dap)
     dap.adapters.codelldb = {
         type = "server",
         port = "${port}",

@@ -1,4 +1,4 @@
-function set_mappings(client, buffer)
+local function set_mappings(client, buffer)
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { desc = "[D]iagnostic [k] - previous", buffer = buffer })
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { desc = "[D]iagnostic [j] - next", buffer = buffer })
     vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen", buffer = buffer })
@@ -25,12 +25,12 @@ function set_mappings(client, buffer)
     end
 end
 
-function setup_servers()
+local function setup_servers()
     local lsp = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server" }
+    local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server", "dockerls" }
     local default_config = {
         capabilities = capabilities,
         on_attach = set_mappings,
@@ -45,7 +45,7 @@ function setup_servers()
         cmd = cmd,
         capabilities = capabilities,
         on_attach = set_mappings,
-        on_new_config = function(new_config, new_root_dir)
+        on_new_config = function(new_config)
             new_config.cmd = cmd
         end,
     })
@@ -69,6 +69,28 @@ function setup_servers()
         capabilities = capabilities,
         on_attach = set_mappings,
     })
+    local schema_store = require('schemastore')
+    lsp.jsonls.setup({
+        capabilities = capabilities,
+        on_attach = set_mappings,
+        settings = {
+            json = {
+                schemas = schema_store.json.schemas(),
+                validate = { enable = true },
+            },
+        },
+    })
+    lsp.yamlls.setup {
+        settings = {
+            yaml = {
+                schemaStore = {
+                    enable = false,
+                    url = "",
+                },
+                schemas = schema_store.yaml.schemas(),
+            },
+        },
+    }
 end
 
 return {
@@ -76,6 +98,7 @@ return {
     dependencies = {
         "Hoffs/omnisharp-extended-lsp.nvim",
         "Issafalcon/lsp-overloads.nvim",
+        "b0o/SchemaStore.nvim",
     },
     config = setup_servers,
     init = function()
