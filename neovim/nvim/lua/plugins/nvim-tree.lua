@@ -22,9 +22,6 @@ return {
             indent_markers = {
                 enable = true,
             },
-            icons = {
-                git_placement = "after",
-            },
         },
     },
 }

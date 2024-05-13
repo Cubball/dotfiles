@@ -2,6 +2,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
         local telescope = require("telescope")
@@ -12,8 +13,13 @@ return {
             defaults = {
                 mappings = {
                     n = {
-                        ["q"] = require("telescope.actions").close,
+                        ["q"] = actions.close,
                     },
+                },
+            },
+            extensions = {
+                ["ui-select"] = {
+                    themes.get_dropdown(),
                 },
             },
         })
@@ -32,5 +38,6 @@ return {
         vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = "[G]o to [R]eferences" })
         vim.keymap.set("n", "<leader>fsd", builtin.lsp_document_symbols, { desc = "[F]ind [S]ymbols in [D]ocument" })
         vim.keymap.set("n", "<leader>fsw", builtin.lsp_dynamic_workspace_symbols, { desc = "[F]ind [S]ymbols in [W]orkspace" })
+        telescope.load_extension("ui-select")
     end,
 }
