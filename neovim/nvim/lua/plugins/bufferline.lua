@@ -24,11 +24,7 @@ return {
         })
         vim.keymap.set("n", "H", vim.cmd.BufferLineCyclePrev, { desc = "H - go to the buffer to the left"})
         vim.keymap.set("n", "L", vim.cmd.BufferLineCycleNext, { desc = "L - go to the buffer to the right"})
-        -- NOTE: trying to not use this
-        -- might change <leader>l -> <leader>bl, same for h
-        -- not sure about the last keymap
-        -- vim.keymap.set("n", "<leader>h", vim.cmd.BufferLineMovePrev, { desc = "Space + h - move the current buffer to the left"})
-        -- vim.keymap.set("n", "<leader>l", vim.cmd.BufferLineMoveNext, { desc = "Space + l - move the current buffer to the right" })
-        -- vim.keymap.set("n", "<leader>gb", vim.cmd.BufferLinePick, { desc = "[G]o to [B]uffer"})
+        vim.keymap.set("n", "<leader>bh", vim.cmd.BufferLineMovePrev, { desc = "[B]uffer + h - move the current buffer to the left"})
+        vim.keymap.set("n", "<leader>bl", vim.cmd.BufferLineMoveNext, { desc = "[B]uffer + l - move the current buffer to the right" })
     end,
 }

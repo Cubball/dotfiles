@@ -3,10 +3,9 @@ return {
     dependencies = {
         "Issafalcon/neotest-dotnet",
     },
-    -- NOTE: using only a custom command for now, might bring the keymap later
-    -- keys = {
-    --     { "<leader>te", function() require("neotest").summary.toggle() end, desc = "[T]est [E]xplorer" },
-    -- },
+    keys = {
+        { "<leader>te", function() require("neotest").summary.toggle() end, desc = "[T]est [E]xplorer" },
+    },
     cmd = "TestExplorer",
     config = function()
         local neotest = require("neotest")

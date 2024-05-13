@@ -4,9 +4,8 @@ return {
     opts = {
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
-            -- NOTE: might delete this later, since I mostly use neogit for stating/commiting
-            -- vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })
-            -- vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo stage" })
+            vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })
+            vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo stage" })
             vim.keymap.set("n", "<leader>hr", gs.reset_hunk, { desc = "[H]unk [R]eset" })
             vim.keymap.set("n", "<leader>hj", gs.next_hunk, { desc = "[H]unk [j] - next" })
             vim.keymap.set("n", "<leader>hk", gs.prev_hunk, { desc = "[H]unk [k] - previous" })
