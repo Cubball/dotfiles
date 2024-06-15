@@ -10,7 +10,7 @@ return {
             vim.keymap.set("n", "<leader>hj", gs.next_hunk, { desc = "[H]unk [j] - next" })
             vim.keymap.set("n", "<leader>hk", gs.prev_hunk, { desc = "[H]unk [k] - previous" })
             vim.keymap.set("n", "<leader>hv", gs.preview_hunk, { desc = "[H]unk [V]iew" })
-            vim.api.nvim_buf_create_user_command(buffer, "GitBlameToggle", function() gs.toggle_current_line_blame() end, { })
+            vim.keymap.set("n", "<leader>obt", gs.toggle_current_line_blame, { desc = "[O]ther: [B]lame [T]oggle" })
         end,
     },
 }

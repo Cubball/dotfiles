@@ -1,4 +1,4 @@
-local function set_mappings(client, buffer)
+local function set_mappings_on_attach(client, buffer)
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { desc = "[D]iagnostic [k] - previous", buffer = buffer })
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { desc = "[D]iagnostic [j] - next", buffer = buffer })
     vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen", buffer = buffer })
@@ -19,36 +19,47 @@ local function set_mappings(client, buffer)
     end
 end
 
-local function setup_servers()
-    vim.keymap.set("n", "<leader>oli", "<CMD>LspInfo<CR>", { desc = "[O]ther: [L]SP [I]nfo" })
-    vim.keymap.set("n", "<leader>olr", "<CMD>LspRestart<CR>", { desc = "[O]ther: [L]SP [R]estart" })
+local function configure_diagnostic_highlights()
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", {
+        underdotted = true,
+    })
+end
 
+local function on_attach(client, buffer)
+    set_mappings_on_attach(client, buffer)
+    configure_diagnostic_highlights()
+end
+
+local function configure_servers()
     local lsp = require("lspconfig")
+    local schema_store = require('schemastore')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+    local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
+    local angularls_cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
     local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server", "dockerls" }
     local default_config = {
         capabilities = capabilities,
-        on_attach = set_mappings,
+        on_attach = on_attach,
     }
+
     for _, server in ipairs(servers) do
         lsp[server].setup(default_config)
     end
 
-    local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
-    local cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
     lsp.angularls.setup({
-        cmd = cmd,
+        cmd = angularls_cmd,
         capabilities = capabilities,
-        on_attach = set_mappings,
+        on_attach = on_attach,
         on_new_config = function(new_config)
             new_config.cmd = cmd
         end,
     })
     lsp.tailwindcss.setup({
         capabilities = capabilities,
-        on_attach = set_mappings,
+        on_attach = on_attach,
         settings = {
             tailwindCSS = {
                 emmetCompletions = true,
@@ -61,7 +72,7 @@ local function setup_servers()
             ["textDocument/definition"] = require("omnisharp_extended").handler,
         },
         capabilities = capabilities,
-        on_attach = set_mappings,
+        on_attach = on_attach,
         settings = {
             FormattingOptions = {
                 EnableEditorConfigSupport = true,
@@ -73,10 +84,9 @@ local function setup_servers()
             },
         },
     })
-    local schema_store = require('schemastore')
     lsp.jsonls.setup({
         capabilities = capabilities,
-        on_attach = set_mappings,
+        on_attach = on_attach,
         settings = {
             json = {
                 schemas = schema_store.json.schemas(),
@@ -97,6 +107,12 @@ local function setup_servers()
     }
 end
 
+local function config()
+    vim.keymap.set("n", "<leader>oli", "<CMD>LspInfo<CR>", { desc = "[O]ther: [L]SP [I]nfo" })
+    vim.keymap.set("n", "<leader>olr", "<CMD>LspRestart<CR>", { desc = "[O]ther: [L]SP [R]estart" })
+    configure_servers()
+end
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -104,14 +120,5 @@ return {
         "Issafalcon/lsp-overloads.nvim",
         "b0o/SchemaStore.nvim",
     },
-    config = setup_servers,
-    init = function()
-        vim.diagnostic.config({
-            underline = {
-                severity = {
-                    min = vim.diagnostic.severity.WARN
-                },
-            },
-        })
-    end,
+    config = config,
 }

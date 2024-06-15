@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "sindrets/diffview.nvim",
     },
+    tag = "v0.0.1",
     opts = {
         kind = "vsplit",
         highlight = {

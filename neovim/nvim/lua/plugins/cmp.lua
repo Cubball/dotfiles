@@ -75,7 +75,7 @@ return {
             formatting = {
                 fields = { "abbr", "menu", "kind" },
                 format = function(entry, vim_item)
-                    vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+                    vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind or ""
                     vim_item.menu = ({
                         path = "[Path]",
                         buffer = "[Buffer]",
