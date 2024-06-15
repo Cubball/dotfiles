@@ -25,6 +25,7 @@ return {
         })
         vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Space + Space - find buffers for quick access" })
         vim.keymap.set("n", "<leader>ft", builtin.builtin, { desc = "[F]ind [T]elescope" })
+        vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]ecent" })
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
         vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind [B]uffers" })
         vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind [W]ord (under cursor)" })

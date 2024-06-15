@@ -18,6 +18,5 @@ return {
                 open = false,
             },
         })
-        vim.api.nvim_create_user_command("TestExplorer", function() neotest.summary.toggle() end, { })
     end,
 }

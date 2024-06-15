@@ -6,10 +6,6 @@ local function set_mappings(client, buffer)
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition", buffer = buffer })
     vim.keymap.set("n", "<leader>gtd", vim.lsp.buf.type_definition, { desc = "[G]o to [T]ype [D]efinition", buffer = buffer })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "[R]e[N]ame", buffer = buffer })
-    vim.keymap.set("n", "<leader>fm", function()
-        vim.lsp.buf.format({ async = true })
-    end, { desc = "[F]or[M]at", buffer = buffer })
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "K - show info, help", buffer = buffer })
     if client.server_capabilities.signatureHelpProvider then
         require("lsp-overloads").setup(client, {
             display_automatically = false,
@@ -18,14 +14,15 @@ local function set_mappings(client, buffer)
             },
         })
         vim.keymap.set({ "n", "i" }, "<C-n>", "<cmd>LspOverloadsSignature<CR>", { desc = "Ctrl + n - show signature help with overloads (if they are present)", buffer = buffer })
-        -- HACK: haven't found a way to set the color of the active parameter natively
-        vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { underline = true })
     else
         vim.keymap.set({ "n", "i" }, "<C-n>", vim.lsp.buf.signature_help, { desc = "Ctrl + n - show signature help", buffer = buffer })
     end
 end
 
 local function setup_servers()
+    vim.keymap.set("n", "<leader>oli", "<CMD>LspInfo<CR>", { desc = "[O]ther: [L]SP [I]nfo" })
+    vim.keymap.set("n", "<leader>olr", "<CMD>LspRestart<CR>", { desc = "[O]ther: [L]SP [R]estart" })
+
     local lsp = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -63,11 +60,18 @@ local function setup_servers()
         handlers = {
             ["textDocument/definition"] = require("omnisharp_extended").handler,
         },
-        enable_import_completion = true,
-        enable_roslyn_analyzers = true,
-        organize_imports_on_format = true,
         capabilities = capabilities,
         on_attach = set_mappings,
+        settings = {
+            FormattingOptions = {
+                EnableEditorConfigSupport = true,
+                OrganizeImports = true,
+            },
+            RoslynExtensionsOptions = {
+                EnableAnalyzersSupport = true,
+                EnableImportCompletion = true,
+            },
+        },
     })
     local schema_store = require('schemastore')
     lsp.jsonls.setup({
