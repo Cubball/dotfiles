@@ -62,11 +62,7 @@ return {
     dependencies = {
         {
             "rcarriga/nvim-dap-ui",
-            main = "dapui",
-            config = true,
-            dependencies = {
-                "nvim-neotest/nvim-nio",
-            },
+            "nvim-neotest/nvim-nio",
         },
     },
     keys = {
