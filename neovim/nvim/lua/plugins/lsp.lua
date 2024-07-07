@@ -1,4 +1,6 @@
 local function set_mappings_on_attach(client, buffer)
+    -- NOTE: might remvoe this keymap later
+    vim.keymap.set("n", "<leader>oht", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "[O]ther: Inlay [H]ints [T]oggle" })
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { desc = "[D]iagnostic [k] - previous", buffer = buffer })
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { desc = "[D]iagnostic [j] - next", buffer = buffer })
     vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen", buffer = buffer })
@@ -39,7 +41,7 @@ local function configure_servers()
 
     local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
     local angularls_cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
-    local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server", "dockerls" }
+    local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server", "dockerls", "prismals" }
     local default_config = {
         capabilities = capabilities,
         on_attach = on_attach,
@@ -94,7 +96,9 @@ local function configure_servers()
             },
         },
     })
-    lsp.yamlls.setup {
+    lsp.yamlls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
         settings = {
             yaml = {
                 schemaStore = {
@@ -104,12 +108,23 @@ local function configure_servers()
                 schemas = schema_store.yaml.schemas(),
             },
         },
-    }
+    })
+    lsp.eslint.setup({
+        capabilities = capabilities,
+        on_attach = function(client, buffer)
+            on_attach(client, buffer)
+            vim.keymap.set("n", "<leader>lf", "<CMD>EslintFixAll<CR>", { desc = "Es[L]int [F]ix All", buffer = buffer })
+        end,
+    })
 end
 
 local function config()
     vim.keymap.set("n", "<leader>oli", "<CMD>LspInfo<CR>", { desc = "[O]ther: [L]SP [I]nfo" })
     vim.keymap.set("n", "<leader>olr", "<CMD>LspRestart<CR>", { desc = "[O]ther: [L]SP [R]estart" })
+    -- NOTE: trying this out
+    -- vim.diagnostic.config({
+    --     update_in_insert = true,
+    -- })
     configure_servers()
 end
 
