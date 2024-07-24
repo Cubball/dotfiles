@@ -73,7 +73,7 @@ return {
         { "<S-F9>", function() require("dap").clear_breakpoints() end, desc = "Shift + F9 - clear all of the breakpoints" },
         { "<F10>", function() require("dap").step_over() end, desc = "F10 - step over" },
         { "<F11>", function() require("dap").step_into() end, desc = "F11 - step into" },
-        { "<F12>", function() require("dap").step_out() end, desc = "F12 - step out" },
+        { "<S-F11>", function() require("dap").step_out() end, desc = "F12 - step out" },
     },
     cmd = "DapUiToggle",
     config = function()

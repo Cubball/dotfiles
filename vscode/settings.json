@@ -30,6 +30,7 @@
     "workbench.colorTheme": "Rosé Pine (no italics)",
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.enablePreview": false,
+    "workbench.layoutControl.enabled": false,
     "workbench.startupEditor": "none",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
