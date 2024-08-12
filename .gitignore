@@ -1,1 +1,3 @@
 lazy-lock.json
+# .gitconfig for work account is not checked in
+git/work

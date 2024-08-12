@@ -59,7 +59,8 @@
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 10.0
+                "size": 13.0,
+                "weight": "light"
             },
             "opacity": 100,
             "padding": "0",

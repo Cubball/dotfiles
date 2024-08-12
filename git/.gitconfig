@@ -1,6 +1,8 @@
 [user]
 	name = Cubball
 	email = 138378823+Cubball@users.noreply.github.com
+[includeIf "gitdir:D:/Projects/Work/"]
+    path = .gitconfig-work
 [core]
 	editor = nvim
 [init]

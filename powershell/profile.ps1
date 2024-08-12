@@ -1,6 +1,6 @@
-$DOT = "D:\Projects\Misc\dotfiles"
+$DOT = "D:\Projects\Personal\dotfiles"
 $VIM = "$DOT\neovim\nvim"
-$UNI = "D:\Uni\2\2"
+$UNI = "D:\Uni\3\1"
 $PROJ = "D:\Projects"
 
 function RunTerminalAsAdmin {

@@ -26,7 +26,7 @@
     "vim.useSystemClipboard": true,
     "window.commandCenter": false,
     "window.customTitleBarVisibility": "windowed",
-    "workbench.activityBar.location": "top",
+    "workbench.activityBar.location": "hidden",
     "workbench.colorTheme": "Rosé Pine (no italics)",
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.enablePreview": false,
