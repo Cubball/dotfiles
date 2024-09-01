@@ -35,7 +35,7 @@ end
 
 local function configure_servers()
     local lsp = require("lspconfig")
-    local schema_store = require('schemastore')
+    local schema_store = require("schemastore")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
