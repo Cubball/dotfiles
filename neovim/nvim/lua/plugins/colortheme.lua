@@ -1,8 +1,7 @@
 return {
-    "navarasu/onedark.nvim",
-    config = function()
-        local onedark = require("onedark")
-        onedark.setup({
+    {
+        "navarasu/onedark.nvim",
+        opts = {
             style = "cool",
             transparent = true,
             term_colors = true,
@@ -24,7 +23,82 @@ return {
                 ["@lsp.type.enumMember"] = { fg = "$fg" },
                 ["@lsp.type.constantName"] = { fg = "$fg" },
             },
-        })
-        onedark.load()
-    end,
+        },
+    },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        main = "rose-pine",
+        opts = {
+            styles = {
+                italic = false,
+                transparency = true,
+            },
+        },
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            styles = {
+                comments = { italic = false, },
+                keywords = { italic = false, },
+            },
+            on_highlights = function(hl, c)
+                local prompt = "#2d3149"
+                hl.TelescopeNormal = {
+                    bg = c.bg_dark,
+                    fg = c.fg_dark,
+                }
+                hl.TelescopeBorder = {
+                    bg = c.bg_dark,
+                    fg = c.bg_dark,
+                }
+                hl.TelescopePromptNormal = {
+                    bg = prompt,
+                }
+                hl.TelescopePromptBorder = {
+                    bg = prompt,
+                    fg = prompt,
+                }
+                hl.TelescopePromptTitle = {
+                    bg = prompt,
+                    fg = prompt,
+                }
+                hl.TelescopePreviewTitle = {
+                    bg = c.bg_dark,
+                    fg = c.bg_dark,
+                }
+                hl.TelescopeResultsTitle = {
+                    bg = c.bg_dark,
+                    fg = c.bg_dark,
+                }
+            end,
+        },
+        config = function(_, opts)
+            require("tokyonight").setup(opts)
+            vim.cmd[[colorscheme tokyonight]]
+        end,
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        opts = {
+            styles = {
+                comments = {},
+                conditionals = {},
+            },
+            integrations = {
+                telescope = {
+                    enabled = true,
+                    style = "nvchad",
+                },
+            },
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+            vim.cmd[[colorscheme catppuccin]]
+        end,
+    }
 }
