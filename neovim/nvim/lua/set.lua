@@ -1,3 +1,5 @@
+vim.cmd('language en_US.utf8')
+
 local o = vim.opt
 -- UI
 o.fileencodings = "utf-8,cp1251"
@@ -24,6 +26,7 @@ o.smartindent = true
 o.ignorecase = true
 o.smartcase = true
 o.timeoutlen = 500
+o.shellslash = true
 
 -- Other
 o.splitbelow = true
