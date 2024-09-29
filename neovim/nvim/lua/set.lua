@@ -27,6 +27,7 @@ o.ignorecase = true
 o.smartcase = true
 o.timeoutlen = 500
 o.shellslash = true
+o.fileformats = "unix,dos"
 
 -- Other
 o.splitbelow = true

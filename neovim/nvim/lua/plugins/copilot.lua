@@ -2,7 +2,7 @@ return {
     "github/copilot.vim",
     cmd = "Copilot",
     keys = {
-        { "<leader>oce", "<CMD>Copilot enable<CR>", desc = "[O]ther: [C]opilot [E]nable" },
+        { "<leader>oce", "<CMD>Copilot auth<CR><CMD>Copilot enable<CR>", desc = "[O]ther: [C]opilot [E]nable" },
         { "<leader>ocd", "<CMD>Copilot disable<CR>", desc = "[O]ther: [C]opilot [D]isable" },
     },
     config = function()

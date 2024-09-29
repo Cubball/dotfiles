@@ -14,6 +14,7 @@ return {
             },
             keywords = {
                 IDEA = { icon = " ", color = "info" },
+                TBD = { icon = " ", color = "warning", },
             },
         })
         vim.keymap.set("n", "<leader>tk", todo.jump_prev, { desc = "[T]ODO [k] - previous" })

@@ -63,15 +63,15 @@ return {
                     fg = prompt,
                 }
                 hl.TelescopePromptTitle = {
-                    bg = prompt,
+                    bg = c.purple,
                     fg = prompt,
                 }
                 hl.TelescopePreviewTitle = {
-                    bg = c.bg_dark,
+                    bg = c.green,
                     fg = c.bg_dark,
                 }
                 hl.TelescopeResultsTitle = {
-                    bg = c.bg_dark,
+                    bg = c.cyan,
                     fg = c.bg_dark,
                 }
             end,
@@ -98,7 +98,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            vim.cmd[[colorscheme catppuccin]]
+            -- vim.cmd[[colorscheme catppuccin]]
         end,
     }
 }
