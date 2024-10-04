@@ -15,6 +15,6 @@ return {
         vim.keymap.set("n", "<leader>fm", function() conform.format({
             timeout_ms = 3000,
             lsp_fallback = true,
-        }) end)
+        }) end, { desc = "[F]or[M]at", })
     end
 }

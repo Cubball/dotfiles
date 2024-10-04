@@ -20,8 +20,6 @@ return {
             },
             org = {
                 org_toggle_checkbox = "<leader><leader>",
-                org_previous_visible_heading = "}",
-                org_next_visible_heading = "{",
             },
         },
         org_capture_templates = {
