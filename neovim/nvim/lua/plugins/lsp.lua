@@ -41,7 +41,7 @@ local function configure_servers()
 
     local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
     local angularls_cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
-    local servers = { "html", "cssls", "tsserver", "pyright", "emmet_language_server", "dockerls", "prismals", "gopls", "terraformls" }
+    local servers = { "html", "cssls", "ts_ls", "pyright", "emmet_language_server", "dockerls", "prismals", "gopls", "terraformls" }
     local default_config = {
         capabilities = capabilities,
         on_attach = on_attach,

@@ -9,6 +9,7 @@ return {
         org_log_done = false,
         org_log_repeat = false,
         org_log_into_drawer = false,
+        org_deadline_warning_days = 5,
         org_blank_before_new_entry = {
             heading = false,
             plain_list_item = false,
