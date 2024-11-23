@@ -1,6 +1,4 @@
 local function set_mappings_on_attach(client, buffer)
-    -- NOTE: might remvoe this keymap later
-    vim.keymap.set("n", "<leader>oht", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "[O]ther: Inlay [H]ints [T]oggle" })
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { desc = "[D]iagnostic [k] - previous", buffer = buffer })
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { desc = "[D]iagnostic [j] - next", buffer = buffer })
     vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen", buffer = buffer })
@@ -121,10 +119,6 @@ end
 local function config()
     vim.keymap.set("n", "<leader>oli", "<CMD>LspInfo<CR>", { desc = "[O]ther: [L]SP [I]nfo" })
     vim.keymap.set("n", "<leader>olr", "<CMD>LspRestart<CR>", { desc = "[O]ther: [L]SP [R]estart" })
-    -- NOTE: trying this out
-    -- vim.diagnostic.config({
-    --     update_in_insert = true,
-    -- })
     configure_servers()
 end
 
