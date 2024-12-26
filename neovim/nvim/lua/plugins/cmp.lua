@@ -86,7 +86,6 @@ return {
                     return vim_item
                 end,
             },
-            -- NOTE: might disable later
             view = {
                 entries = {
                     follow_cursor = true,

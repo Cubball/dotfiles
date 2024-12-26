@@ -6,6 +6,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "K in Visual Mode - move s
 
 vim.keymap.set("i", "jk", "<Esc>", { desc = "jk in Insert Mode - escape" })
 vim.keymap.set("c", "jk", "<C-c>", { desc = "jk in Command Mode - escape" })
+vim.keymap.set("t", "jk", "<C-\\><C-n>", { desc = "jk in Terminal Mode - escape" })
 
 -- Keep cursor in it's place when doing J in normal mode
 vim.keymap.set("n", "J", "mzJ`z")
@@ -39,6 +40,10 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Ctrl + j in Normal Mode - go to
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Ctrl + k in Normal Mode - go to top split" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Ctrl + h in Normal Mode - go to left split" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Ctrl + l in Normal Mode - go to right split" })
+vim.keymap.set("t", "<C-j>", "<CMD>wincmd j<CR>", { desc = "Ctrl + j in Terminal Mode - go to bottom split" })
+vim.keymap.set("t", "<C-k>", "<CMD>wincmd k<CR>", { desc = "Ctrl + k in Terminal Mode - go to top split" })
+vim.keymap.set("t", "<C-h>", "<CMD>wincmd h<CR>", { desc = "Ctrl + h in Terminal Mode - go to left split" })
+vim.keymap.set("t", "<C-l>", "<CMD>wincmd l<CR>", { desc = "Ctrl + l in Terminal Mode - go to right split" })
 -- Resizing splits
 vim.keymap.set("n", "<C-Left>", "<CMD>vertical resize -2<CR>", { desc = "Ctrl + LeftArrow - make current split narrower" })
 vim.keymap.set("n", "<C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Ctrl + RightArrow - make current split wider" })
@@ -47,3 +52,8 @@ vim.keymap.set("n", "<C-Down>", "<CMD>resize -2<CR>", { desc = "Ctrl + DownArrow
 
 -- Switch keymaps
 vim.keymap.set("i", "<C-l>", "<C-^>")
+
+-- Sourcing and executing stuff
+vim.keymap.set("n", "<leader><leader>x", "<CMD>source %<CR>", { desc = "E[X]ecute the whole file" })
+vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "E[X]ecute the current line" })
+vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "E[X]ecute the selection" })

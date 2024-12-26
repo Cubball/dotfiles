@@ -32,7 +32,6 @@ return {
                 description = "Other",
                 template = "* %?",
             },
-            -- TODO: j for journal?
         },
     },
 }

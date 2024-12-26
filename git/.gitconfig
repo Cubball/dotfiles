@@ -7,5 +7,6 @@
     path = .gitconfig-fs
 [core]
 	editor = nvim
+	autocrlf = false
 [init]
 	defaultBranch = main
