@@ -2,7 +2,7 @@ return {
     "akinsho/toggleterm.nvim",
     opts = {
         open_mapping = "<leader>tt",
-        shell = "pwsh",
+        shell = "pwsh.exe -NoLogo",
         shade_terminals = false,
         insert_mappings = false,
         winbar = {
