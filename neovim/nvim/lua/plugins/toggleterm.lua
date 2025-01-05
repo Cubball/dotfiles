@@ -5,6 +5,7 @@ return {
         shell = "pwsh.exe -NoLogo",
         shade_terminals = false,
         insert_mappings = false,
+        size = 20,
         winbar = {
             enabled = false, -- TODO: try this later
             name_formatter = function(term)

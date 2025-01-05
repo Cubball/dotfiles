@@ -2,6 +2,10 @@ return {
     "stevearc/conform.nvim",
     config = function()
         local conform = require("conform")
+        local format_options = {
+            timeout_ms = 3000,
+            lsp_fallback = true,
+        }
         conform.setup({
             formatters_by_ft = {
                 html = { "prettier" },
@@ -10,11 +14,9 @@ return {
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
             },
+            format_on_save = format_options,
         })
 
-        vim.keymap.set("n", "<leader>fm", function() conform.format({
-            timeout_ms = 3000,
-            lsp_fallback = true,
-        }) end, { desc = "[F]or[M]at", })
+        vim.keymap.set("n", "<leader>fm", function() conform.format(format_options) end, { desc = "[F]or[M]at", })
     end
 }
