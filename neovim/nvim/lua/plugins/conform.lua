@@ -13,6 +13,7 @@ return {
                 typescript = { "prettier" },
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
+                json = { "jq" },
             },
             format_on_save = format_options,
         })
