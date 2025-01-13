@@ -78,7 +78,7 @@ return {
         },
         config = function(_, opts)
             require("tokyonight").setup(opts)
-            -- vim.cmd[[colorscheme tokyonight]]
+            vim.cmd[[colorscheme tokyonight]]
         end,
     },
     {
@@ -95,7 +95,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            vim.cmd[[colorscheme catppuccin-mocha]]
+            -- vim.cmd[[colorscheme catppuccin-mocha]]
         end,
     }
 }

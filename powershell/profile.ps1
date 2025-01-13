@@ -1,6 +1,6 @@
 $DOT = "D:\Projects\Personal\dotfiles"
 $VIM = "$DOT\neovim\nvim"
-$UNI = "D:\Uni\3\1"
+$UNI = "D:\Uni\3\2"
 $PROJ = "D:\Projects"
 $NOTE = "D:\Notes"
 
