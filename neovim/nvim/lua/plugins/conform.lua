@@ -14,6 +14,7 @@ return {
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
                 json = { "jq" },
+                jsonc = { "jq" },
             },
             format_on_save = format_options,
         })
