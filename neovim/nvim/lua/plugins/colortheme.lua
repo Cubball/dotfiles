@@ -78,17 +78,14 @@ return {
         },
         config = function(_, opts)
             require("tokyonight").setup(opts)
-            vim.cmd[[colorscheme tokyonight]]
+            -- vim.cmd[[colorscheme tokyonight]]
         end,
     },
     {
         "catppuccin/nvim",
         name = "catppuccin",
         opts = {
-            styles = {
-                comments = {},
-                conditionals = {},
-            },
+            no_italic = true,
             integrations = {
                 telescope = {
                     enabled = true,
@@ -98,7 +95,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            -- vim.cmd[[colorscheme catppuccin]]
+            vim.cmd[[colorscheme catppuccin-mocha]]
         end,
     }
 }
