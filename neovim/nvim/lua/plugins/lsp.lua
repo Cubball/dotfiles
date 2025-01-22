@@ -26,7 +26,7 @@ local function configure_diagnostic_highlights()
     })
 end
 
-local function on_attach(client, buffer)
+function on_attach(client, buffer)
     set_mappings_on_attach(client, buffer)
     configure_diagnostic_highlights()
 end
