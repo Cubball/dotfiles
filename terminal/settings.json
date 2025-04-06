@@ -1,20 +1,27 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
-        {
-            "command": "unbound",
-            "keys": "f11"
-        }
-    ],
+    "actions": [],
     "confirmCloseAllTabs": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "disableAnimations": false,
+    "keybindings": 
+    [
+        {
+            "id": null,
+            "keys": "f11"
+        }
+    ],
     "launchMode": "maximized",
-    "profiles":
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "adjustIndistinguishableColors": "never",
             "backgroundImage": "D:\\Misc\\eva.png",
@@ -23,19 +30,19 @@
             "bellStyle": "none",
             "colorScheme": "Campbell with Dark Blue Background",
             "cursorShape": "filledBox",
-            "font":
+            "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
                 "size": 13,
                 "weight": "light"
             },
+            "intenseTextStyle": "bold",
             "opacity": 100,
             "padding": "0",
             "scrollbarState": "hidden",
-            "intenseTextStyle": "bold",
             "useAcrylic": false
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "pwsh.exe -NoLogo",
@@ -70,7 +77,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#1E1E2E",
@@ -95,5 +102,6 @@
             "white": "#CCCCCC",
             "yellow": "#C19C00"
         }
-    ]
+    ],
+    "themes": []
 }

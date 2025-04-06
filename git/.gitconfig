@@ -1,10 +1,8 @@
 [user]
 	name = Cubball
 	email = 138378823+Cubball@users.noreply.github.com
-[includeIf "gitdir:D:/Projects/Work/"]
-    path = .gitconfig-work
-[includeIf "gitdir:D:/Projects/Work/FS/"]
-    path = .gitconfig-fs
+[include]
+    path = .gitconfig-conditional
 [core]
 	editor = nvim
 	autocrlf = false
