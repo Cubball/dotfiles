@@ -190,7 +190,7 @@
         "c"
       ],
       "commands": [
-        "workbench.action.closeActiveEditor"
+        "workbench.action.closeEditorsInGroup"
       ]
     },
     {
@@ -545,4 +545,3 @@
     }
   ]
 }
-
