@@ -450,6 +450,20 @@
       "commands": [
         "inlineChat.start"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "c",
+        "q"
+      ],
+      "commands": [
+        "workbench.action.quickchat.toggle"
+      ],
+      "when": [
+        "chatIsEnabled"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -545,6 +559,20 @@
       "commands": [
         "inlineChat.start"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "c",
+        "q"
+      ],
+      "commands": [
+        "workbench.action.quickchat.toggle"
+      ],
+      "when": [
+        "chatIsEnabled"
+      ]
     }
   ],
   "vim.insertModeKeyBindings": [
@@ -575,6 +603,14 @@
       "when": [
         "inInlineEditsPreviewEditor"
       ]
+    },
+    {
+      "before": [
+        "<C-i>"
+      ],
+      "commands": [
+        "inlineChat.start"
+      ]
     }
   ],
   "vim.commandLineModeKeyBindingsNonRecursive": [
@@ -591,5 +627,6 @@
   "github.copilot.chat.codesearch.enabled": true,
   "chat.agent.enabled": true,
   "telemetry.feedback.enabled": false,
-  "rest-client.enableTelemetry": false
+  "rest-client.enableTelemetry": false,
+  "github.copilot.nextEditSuggestions.enabled": true
 }
