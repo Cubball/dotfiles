@@ -554,5 +554,9 @@
         "<Esc>"
       ]
     }
-  ]
+  ],
+  "github.copilot.chat.codesearch.enabled": true,
+  "chat.agent.enabled": true,
+  "telemetry.feedback.enabled": false,
+  "rest-client.enableTelemetry": false
 }
