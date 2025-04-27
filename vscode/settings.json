@@ -428,6 +428,17 @@
       "when": [
         "terminal.active"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "s",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.toggleAuxiliaryBar"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
