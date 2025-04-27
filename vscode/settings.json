@@ -439,6 +439,17 @@
       "commands": [
         "workbench.action.toggleAuxiliaryBar"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "c",
+        "i"
+      ],
+      "commands": [
+        "inlineChat.start"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -523,6 +534,17 @@
       "commands": [
         "editor.action.quickFix"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "c",
+        "i"
+      ],
+      "commands": [
+        "inlineChat.start"
+      ]
     }
   ],
   "vim.insertModeKeyBindings": [
@@ -541,6 +563,17 @@
       ],
       "commands": [
         "editor.action.triggerParameterHints"
+      ]
+    },
+    {
+      "before": [
+        "<C-y>"
+      ],
+      "commands": [
+        "editor.action.inlineSuggest.commit"
+      ],
+      "when": [
+        "inInlineEditsPreviewEditor"
       ]
     }
   ],
