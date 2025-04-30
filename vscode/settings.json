@@ -464,6 +464,39 @@
       "when": [
         "chatIsEnabled"
       ]
+    },
+    {
+      "before": [
+        "<C-o>"
+      ],
+      "commands": [
+        "workbench.action.navigateBack"
+      ],
+      "when": [
+        "canNavigateBack"
+      ]
+    },
+    {
+      "before": [
+        "<C-i>"
+      ],
+      "commands": [
+        "workbench.action.navigateForward"
+      ],
+      "when": [
+        "canNavigateForward"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
+        "f",
+        "c"
+      ],
+      "commands": [
+        "workbench.files.action.collapseExplorerFolders"
+      ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -553,6 +586,17 @@
       "before": [
         "<leader>",
         "o",
+        "s",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.toggleAuxiliaryBar"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o",
         "c",
         "i"
       ],
@@ -572,6 +616,38 @@
       ],
       "when": [
         "chatIsEnabled"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "workbench.action.navigateLeft"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "commands": [
+        "workbench.action.navigateDown"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "workbench.action.navigateUp"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        "workbench.action.navigateRight"
       ]
     }
   ],
