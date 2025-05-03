@@ -717,5 +717,7 @@
   "chat.agent.enabled": true,
   "telemetry.feedback.enabled": false,
   "rest-client.enableTelemetry": false,
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
