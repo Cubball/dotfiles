@@ -649,6 +649,19 @@
       "commands": [
         "workbench.action.navigateRight"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "s"
+      ],
+      "commands": [
+        "git.stageSelectedRanges"
+      ],
+      "when": [
+        "!operationInProgress"
+      ]
     }
   ],
   "vim.insertModeKeyBindings": [
