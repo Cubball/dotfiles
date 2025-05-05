@@ -653,11 +653,24 @@
     {
       "before": [
         "<leader>",
-        "g",
+        "h",
         "s"
       ],
       "commands": [
         "git.stageSelectedRanges"
+      ],
+      "when": [
+        "!operationInProgress"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h",
+        "r"
+      ],
+      "commands": [
+        "git.revertSelectedRanges"
       ],
       "when": [
         "!operationInProgress"
@@ -719,5 +732,7 @@
   "rest-client.enableTelemetry": false,
   "github.copilot.nextEditSuggestions.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false
 }
