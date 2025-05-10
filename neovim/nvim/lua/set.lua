@@ -28,6 +28,8 @@ o.smartcase = true
 o.timeoutlen = 500
 o.shellslash = true
 o.fileformats = "unix,dos"
+o.eol = true
+o.fixendofline = true
 
 -- Other
 o.splitbelow = true

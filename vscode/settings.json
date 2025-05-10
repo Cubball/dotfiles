@@ -734,5 +734,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "zenMode.centerLayout": false,
-  "zenMode.hideLineNumbers": false
+  "zenMode.hideLineNumbers": false,
+  "files.insertFinalNewline": true
 }
