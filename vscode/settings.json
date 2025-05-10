@@ -1,13 +1,16 @@
 {
   "breadcrumbs.enabled": false,
+  "chat.agent.enabled": true,
   "dotnet.server.useOmnisharp": true,
   "dotnetAcquisitionExtension.enableTelemetry": false,
   "editor.bracketPairColorization.enabled": false,
   "editor.codeLens": false,
   "editor.cursorStyle": "block",
   "editor.cursorSurroundingLines": 8,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.lineNumbers": "relative",
@@ -17,8 +20,14 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.stickyScroll.enabled": false,
   "extensions.ignoreRecommendations": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.openRepositoryInParentFolders": "never",
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "rest-client.enableTelemetry": false,
+  "telemetry.feedback.enabled": false,
   "telemetry.telemetryLevel": "off",
   "vim.highlightedyank.duration": 100,
   "vim.highlightedyank.enable": true,
@@ -32,6 +41,8 @@
   "workbench.editor.enablePreview": false,
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
@@ -725,15 +736,5 @@
         "<Esc>"
       ]
     }
-  ],
-  "github.copilot.chat.codesearch.enabled": true,
-  "chat.agent.enabled": true,
-  "telemetry.feedback.enabled": false,
-  "rest-client.enableTelemetry": false,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "zenMode.centerLayout": false,
-  "zenMode.hideLineNumbers": false,
-  "files.insertFinalNewline": true
+  ]
 }
