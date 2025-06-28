@@ -166,6 +166,34 @@
   {
     "key": "ctrl+shift+y",
     "command": "editor.action.inlineSuggest.acceptNextWord",
-    "when": "inlineSuggestionVisible && !editorReadonly"
+    "when": "cppSuggestion && !editorReadonly || inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "-aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "-aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "-cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalPromptBarVisible || terminalProcessSupported && terminalPromptBarVisible"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-composer.startComposerPrompt"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-aichat.newchataction"
   }
 ]

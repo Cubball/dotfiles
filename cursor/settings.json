@@ -1,6 +1,7 @@
 {
   "biome.suggestInstallingGlobally": false,
   "breadcrumbs.enabled": false,
+  "cursor.cpp.enablePartialAccepts": true,
   "editor.bracketPairColorization.enabled": false,
   "editor.codeLens": false,
   "editor.cursorStyle": "block",
@@ -453,21 +454,7 @@
         "i"
       ],
       "commands": [
-        "inlineChat.start"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "o",
-        "c",
-        "q"
-      ],
-      "commands": [
-        "workbench.action.quickchat.toggle"
-      ],
-      "when": [
-        "chatIsEnabled"
+        "aipopup.action.modal.generate"
       ]
     },
     {
@@ -606,21 +593,7 @@
         "i"
       ],
       "commands": [
-        "inlineChat.start"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "o",
-        "c",
-        "q"
-      ],
-      "commands": [
-        "workbench.action.quickchat.toggle"
-      ],
-      "when": [
-        "chatIsEnabled"
+        "aipopup.action.modal.generate"
       ]
     },
     {
@@ -705,7 +678,7 @@
         "<C-y>"
       ],
       "commands": [
-        "editor.action.inlineSuggest.commit"
+        "editor.action.acceptCursorTabSuggestion"
       ],
       "when": [
         "inInlineEditsPreviewEditor"
@@ -716,7 +689,7 @@
         "<C-i>"
       ],
       "commands": [
-        "inlineChat.start"
+        "aipopup.action.modal.generate"
       ]
     }
   ],
