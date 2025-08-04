@@ -29,6 +29,7 @@
   "rest-client.enableTelemetry": false,
   "telemetry.feedback.enabled": false,
   "telemetry.telemetryLevel": "off",
+  "vim.foldfix": true,
   "vim.highlightedyank.duration": 100,
   "vim.highlightedyank.enable": true,
   "vim.leader": "<space>",
