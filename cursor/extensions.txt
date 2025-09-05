@@ -1,0 +1,12 @@
+biomejs.biome
+bradlc.vscode-tailwindcss
+dangmai.workspace-default-settings
+dbaeumer.vscode-eslint
+editorconfig.editorconfig
+esbenp.prettier-vscode
+humao.rest-client
+mvllow.rose-pine
+usernamehw.errorlens
+vitest.explorer
+vscodevim.vim
+vue.volar
