@@ -2,7 +2,7 @@ $env:TERM = "xterm-256color"
 
 $DOT = "D:\Projects\Personal\dotfiles"
 $VIM = "$DOT\neovim\nvim"
-$UNI = "D:\Uni\3\2"
+$UNI = "D:\Uni\4\1"
 $PROJ = "D:\Projects"
 $NOTE = "D:\Notes"
 
