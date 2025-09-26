@@ -8,3 +8,5 @@
 	autocrlf = false
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
