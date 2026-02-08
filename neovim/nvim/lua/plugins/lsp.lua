@@ -1,3 +1,4 @@
+-- TODO: update this to make it work again :/
 local function set_mappings_on_attach(client, buffer)
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { desc = "[D]iagnostic [k] - previous", buffer = buffer })
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { desc = "[D]iagnostic [j] - next", buffer = buffer })
@@ -32,32 +33,22 @@ function on_attach(client, buffer)
 end
 
 local function configure_servers()
-    local lsp = require("lspconfig")
     local schema_store = require("schemastore")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local node_modules_path = os.getenv("APPDATA") .. "/npm/node_modules/"
-    local angularls_cmd = { "ngserver", "--stdio", "--tsProbeLocations", node_modules_path , "--ngProbeLocations", node_modules_path }
-    local servers = { "html", "cssls", "ts_ls", "pyright", "emmet_language_server", "dockerls", "prismals", "gopls", "terraformls", "racket_langserver" }
+    local servers = { "html", "cssls", "ts_ls", "pyright", "emmet_language_server", "dockerls", "prismals", "gopls", "terraformls" }
     local default_config = {
         capabilities = capabilities,
         on_attach = on_attach,
     }
 
     for _, server in ipairs(servers) do
-        lsp[server].setup(default_config)
+        vim.lsp.config(server, default_config)
+        vim.lsp.enable(server)
     end
 
-    lsp.angularls.setup({
-        cmd = angularls_cmd,
-        capabilities = capabilities,
-        on_attach = on_attach,
-        on_new_config = function(new_config)
-            new_config.cmd = cmd
-        end,
-    })
-    lsp.tailwindcss.setup({
+    vim.lsp.config("tailwindcss", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -66,7 +57,8 @@ local function configure_servers()
             },
         },
     })
-    lsp.omnisharp.setup({
+    vim.lsp.enable("tailwindcss")
+    vim.lsp.config("omnisharp", {
         cmd = { "dotnet", os.getenv("LOCALAPPDATA") .. "/omnisharp/OmniSharp.dll" },
         handlers = {
             ["textDocument/definition"] = require("omnisharp_extended").handler,
@@ -84,7 +76,8 @@ local function configure_servers()
             },
         },
     })
-    lsp.jsonls.setup({
+    vim.lsp.enable("omnisharp")
+    vim.lsp.config("jsonls", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -94,7 +87,8 @@ local function configure_servers()
             },
         },
     })
-    lsp.yamlls.setup({
+    vim.lsp.enable("jsonls")
+    vim.lsp.config("yamlls", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -107,13 +101,15 @@ local function configure_servers()
             },
         },
     })
-    lsp.eslint.setup({
+    vim.lsp.enable("yamlls")
+    vim.lsp.config("eslint", {
         capabilities = capabilities,
         on_attach = function(client, buffer)
             on_attach(client, buffer)
             vim.keymap.set("n", "<leader>lf", "<CMD>EslintFixAll<CR>", { desc = "Es[L]int [F]ix All", buffer = buffer })
         end,
     })
+    vim.lsp.enable("eslint")
 end
 
 local function config()
