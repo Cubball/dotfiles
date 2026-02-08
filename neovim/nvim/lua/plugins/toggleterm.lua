@@ -7,7 +7,7 @@ return {
         insert_mappings = false,
         size = 15,
         winbar = {
-            enabled = false, -- TODO: try this later
+            enabled = true,
             name_formatter = function(term)
                 if term.display_name then
                     return term.display_name

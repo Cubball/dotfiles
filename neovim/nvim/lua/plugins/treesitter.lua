@@ -5,7 +5,7 @@ return {
     },
     build = ":TSUpdate",
     opts = {
-        ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "c_sharp" },
+        ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query" },
         sync_install = false,
         auto_install = true,
         highlight = {
