@@ -14,6 +14,12 @@ return {
             heading = false,
             plain_list_item = false,
         },
+        org_todo_keywords = { "TODO(t)", "NEXT(n)", "|", "DONE(d)" },
+        org_use_tag_inheritance = false,
+        org_use_property_inheritance = false,
+        org_agenda_show_future_repeats = false,
+        org_agenda_span = "day",
+        win_split_mode = "vertical",
         mappings = {
             global = {
                 org_agenda = "<leader>na",
@@ -31,6 +37,23 @@ return {
             o = {
                 description = "Other",
                 template = "* %?",
+            },
+            b = {
+                description = "Buy something",
+                template = "* TODO %?       :BUY:",
+            },
+        },
+        org_agenda_custom_commands = {
+            -- TODO: add more
+            b = {
+                description = "Stuff to buy",
+                types = {
+                    {
+                        type = "tags",
+                        match = "BUY",
+                        org_agenda_overriding_header = "Things I need to buy",
+                    },
+                },
             },
         },
     },

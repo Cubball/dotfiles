@@ -34,7 +34,6 @@ return {
             },
         },
     },
-    main = "nvim-treesitter.configs",
     init = function()
         -- To enable folds
         vim.opt.foldmethod = "expr"
